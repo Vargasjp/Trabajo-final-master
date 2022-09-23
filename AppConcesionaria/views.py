@@ -56,21 +56,21 @@ def leerVehiculos(request):
 
 @login_required
 def editarVehiculo(request,id):
-    edit_vehi=Vehiculos.objects.get(id=id)
+    vehi=Vehiculos.objects.get(id=id)
     if request.method=="POST":
         form=VehiculoFormulario(request.POST, request.FILES)
         if form.is_valid():
             info=form.cleaned_data
-            edit_vehi.marca=info["marca"]
-            edit_vehi.tipo=info["tipo"]
-            edit_vehi.color=info["color"]
-            edit_vehi.imagen=info["imagen"]
-            edit_vehi.kilometros=info["kilometros"]            
-            edit_vehi.save()            
-        return render(request, "AppConcesionaria/guardado.html", {"Vehiculo":edit_vehi})
+            vehi.marca=info["marca"]
+            vehi.tipo=info["tipo"]
+            vehi.color=info["color"]
+            vehi.imagen=info["imagen"]
+            vehi.kilometros=info["kilometros"]            
+            vehi.save()            
+        return render(request, "AppConcesionaria/guardado.html", {"Vehiculo":vehi})
     else:
-        form=VehiculoFormulario(initial={"marca":edit_vehi.marca, "tipo":edit_vehi.tipo, "color":edit_vehi.color, "kilometros":edit_vehi.kilometros, "imagen":edit_vehi.imagen })
-        return render(request, "AppConcesionaria/editarVehiculo.html", {"formulario":form, "marca":edit_vehi.marca, "id":edit_vehi.id})
+        form=VehiculoFormulario(initial={"marca":vehi.marca, "tipo":vehi.tipo, "color":vehi.color, "kilometros":vehi.kilometros, "imagen":vehi.imagen })
+        return render(request, "AppConcesionaria/editarVehiculo.html", {"formulario":form, "marca":vehi.marca, "id":vehi.id})
 
 
 def verMas(request,id):
