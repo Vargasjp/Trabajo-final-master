@@ -1,0 +1,22 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Guardado</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<br>
+<div class="text-center" class="container px-4 px-lg-1 mt-1">
+<h3>OK! </h3>
+<h6 style="color:#00ff40 border">{{Vehiculo}}</h6>
+<br>
+<br><br>
+<div class="text-center" ><a class="btn btn-outline-dark mt-auto" href="{% url 'nuestrosVehiculos' %}">Presione para continuar.</a></div>
+
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Vehiculos</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h2 class="text-center">Agregar Vehiculo</h2>
+    <br><br>
+    {% if miFormulario.errors %}
+
+    <p style="color: rgb(252, 249, 249);"> Están mal los datos, revisar</p>
+
+    {% endif %}
+    <form class="text-center" action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        
+       
+        <table>
+            {{ formulario.as_table }}
+        </table>
+        <br>
+        <br>
+        <br>
+    
+        <input class="btn btn-outline-dark mt-auto" type="submit" value="Enviar"  href="">
+        
+        
+    </form>
+{% endblock %}

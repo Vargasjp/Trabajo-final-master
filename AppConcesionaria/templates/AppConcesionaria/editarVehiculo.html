@@ -1,0 +1,23 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Editando Vehiculo</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h1>Editando la Info del Vehiculo {{ marca }}</h1>
+<form action="{% url 'editarVehiculo' id %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+<table>
+
+    {{ formulario.as_table }}
+</table>
+     
+<input class="btn btn-outline-dark mt-auto" type="submit" value="Enviar"  href="">
+
+</form>
+
+{% endblock %}

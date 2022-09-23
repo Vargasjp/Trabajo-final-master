@@ -1,0 +1,24 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Busqueda de Vehiculo</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h1>Buscamos autos por marca</h1>
+
+<form action="{% url 'buscar' %}" method="GET"> {% csrf_token %}
+
+<p>Marca: <input type="text" name="marca", id="marca"></p>
+     
+<input type="submit", value="Buscar">
+
+</form>
+
+<h2>{{ mensaje }}</h2>
+
+{% endblock %}

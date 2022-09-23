@@ -1,0 +1,33 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Resultado de la busqueda</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if mensaje %}
+<h2>{{ mensaje }}</h2>
+{% else %}
+
+
+<h1>Resultado de la busqueda:</h1>
+
+{% for v in vehiculo %}
+
+<h2>Marca: {{ v.marca }}</h2>
+<h2>Tipo: {{ v.tipo }}</h2>
+<h2>Color: {{ v.color }}</h2>
+<h2>Kilometros: {{ v.kilometros }}</h2>
+<h2>Imagen: {{ v.imagen }}</h2>
+<h2>Fecha de publicacion: {{ v.fechaDePublicacion }}</h2>
+
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

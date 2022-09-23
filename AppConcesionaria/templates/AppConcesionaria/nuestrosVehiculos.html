@@ -1,0 +1,37 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Nuestros Vehiculos</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for v in vehiculos %}
+<h2>
+    <p style="color: white">
+        Tipo: {{v.tipo}} <br> Marca: {{ v.marca }} <br> Color: {{v.color}} <br> Kilometros:
+        {{v.kilometros}} <br> </p>
+
+</h2>
+<div>
+    {% if v.imagen %}
+    <img class="card-img-top" src="{{v.imagen.url}}" alt="..."/>
+    {% endif %}
+</div>
+<button>
+    <a href="{% url 'editarVehiculo' v.id %}">Editar</a>
+    <a href="{% url 'verMas' v.id %}">Ver más</a>
+
+</button>
+<p style="color: white">----------------------------------------------</p>
+{% endfor %}
+
+<button>
+    <a href="{% url 'busquedaVehiculo' %}">Buscar Vehiculo</a>
+
+</button>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Mensaje </h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+<h4>
+    <p style="color: white"> Enviado el: {{mensaje.fecha}} <br>  
+        De: {{mensaje.apellido}}, {{mensaje.nombre}}
+        <br> Mensaje: {{mensaje.mensaje}} <br> Se puede responder al email: {{mensaje.email}}
+    </p>
+    
+</h4>
+<a class="btn btn-danger" href="{% url 'crearMensaje' %}">Reponder </a>
+
+
+
+
+
+{% endblock %}

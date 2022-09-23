@@ -1,0 +1,26 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Ver más sobre {{vehiculo.tipo}} {{vehiculo.marca }}</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+<h4>
+    <p style="color: white"> Fecha de publicacion: {{vehiculo.fechaDePublicacion}} <br>  
+        Tipo: {{vehiculo.tipo}} <br> Marca: {{vehiculo.marca }}
+        <br> Color: {{vehiculo.color}} <br> Kilometros: {{vehiculo.kilometros}}
+    </p>
+    
+</h4>
+<a href="{% url 'eliminarVehiculo' vehiculo.id %}">Eliminar</a>
+
+
+
+
+
+{% endblock %}

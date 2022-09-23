@@ -1,0 +1,23 @@
+{% extends "AppConcesionaria/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_de_pagina %}
+<h1 class="nb-5">Mensajes</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for m in mensajes %}
+<h4> De{{ m.apellido }}, {{m.nombre}}   <br> Fecha:{{m.fecha}}</h4>
+<button>
+    
+    <a href="{% url 'verMensaje' m.id %}">Ver más</a>
+
+</button>
+
+{% endfor %} 
+
+<a class="btn btn-danger" href="{% url 'crearMensaje' %}">Crear Mensaje </a>
+{% endblock %}
